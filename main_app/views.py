@@ -9,3 +9,8 @@ def home(request):
 
 
 # Create your views here.
+
+# about route
+def about(request):
+  # Include an .html file extension - unlike when rendering EJS templates
+  return render(request, 'about.html')
