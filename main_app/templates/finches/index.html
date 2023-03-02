@@ -3,20 +3,24 @@
 
 <h1>Finch List</h1>
 
+<div style="display: flex; flex-direction: row; flex-wrap: wrap">
 {% for finch in finches %}
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{ finch.name }}</span>
-      <p>Color: {{ finch.color }}</p>
-      <p>Description: {{ finch.description }}</p>
-      {% if finch.age > 0 %}
-        <p>Age: {{ finch.age }}</p>
-      {% else %}
-        <p>Age: Baby</p>
-      {% endif %}
-      <a href="{% url 'detail' finch.id %}">View {{ finch.name }} details</a>
+
+    <div class="card" style="background-color: {{ finch.color }};">
+      <div class="card-content">
+        <span class="card-title">{{ finch.name }}</span>
+        <p>Color: {{ finch.color }}</p>
+        <p>Description: {{ finch.description }}</p>
+        {% if finch.age > 0 %}
+          <p>Age: {{ finch.age }}</p>
+        {% else %}
+          <p>Age: Baby</p>
+        {% endif %}
+        <a href="{% url 'detail' finch.id %}">View {{ finch.name }} details</a>
+      </div>
     </div>
-  </div>
-{% endfor %}
+    
+    {% endfor %}
+</div>
 
 {% endblock %}
