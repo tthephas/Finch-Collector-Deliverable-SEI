@@ -14,6 +14,7 @@
       {% else %}
         <p>Age: Baby</p>
       {% endif %}
+      <a href="{% url 'detail' finch.id %}">View {{ finch.name }} details</a>
     </div>
   </div>
 {% endfor %}
