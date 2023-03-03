@@ -2,7 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: rgb(176, 175, 175);
+    background-color: rgb(195, 194, 194);
 }
 
 .card {

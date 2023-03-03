@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView
+
 from .models import Finch
+
 
 # finches = [
 #   {'name': 'Timmy', 'color': 'yellow', 'description': 'pretty bird', 'age': 4},
@@ -31,4 +33,5 @@ def finches_detail(request, finch_id):
 class FinchCreate(CreateView):
   model = Finch
   fields = '__all__'
+
 
