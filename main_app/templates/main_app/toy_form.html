@@ -9,7 +9,7 @@
         {% csrf_token %}
 
         <table> {{ form.as_table }}</table>
-        <input type="submit" class="btn" value="{% if object %} Update Toy {% else %} Add Toy {% endif %}">
+        <input type="submit" class="btn" value="{% if object %} Update Toy {% else %} Add Toy {% endif %}"/>
     </form>
 
-{% endblock%}
+{% endblock %}

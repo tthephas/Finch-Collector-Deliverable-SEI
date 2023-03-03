@@ -53,7 +53,7 @@
   <!-- New Markup Above -->
 </div>
 
-<hr>
+<hr />
 <div class="row">
   <div class="col s6">
     <h3>{{ finch.name }}'s Toys</h3>
@@ -68,7 +68,7 @@
           <div class="card-action">
             <form action="{% url 'unassoc_toy' finch.id toy.id %}" method="POST">
               {% csrf_token %}
-              <input type="submit" class="btn red" value="Remove"></input>
+              <input type="submit" class="btn red" value="Remove">
             </form>
           </div>
         </div>
@@ -91,13 +91,12 @@
           <div class="card-action">
             <form action="{% url 'assoc_toy' finch.id toy.id %}" method="POST">
               {% csrf_token %}
-              <input type="submit" class="btn" value="Add"></input>
+              <input type="submit" class="btn" value="Add">
             </form>
           </div>
         </div>
       {% endfor %}
-    {% else %}
-      <h5>{{finch.name}} Already Has All Toys Available</h5>
+
     {% endif %}
   </div>
 </div>
