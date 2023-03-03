@@ -14,6 +14,10 @@ AAU, I want to be able to add edit the attributes of a Finch
 
 AAU, I want to be able to remove a Finch from my list of Finches
 
+AAU, when I visit the detail page for a Finch, I want to see a list of feedings for that finch.
+
+AAU, when I visit the detail page for a Finch, I want to be able to add a feeding for a finch.
+
 
 ### Development steps
 
