@@ -18,6 +18,12 @@ AAU, when I visit the detail page for a Finch, I want to see a list of feedings 
 
 AAU, when I visit the detail page for a Finch, I want to be able to add a feeding for a finch.
 
+AAU, I want to see a list displaying all of the toys in the database. (Step 2 above)
+
+AAU, I want to be able to add a Toy to list of Toys. (Step 2 above)
+
+AAU, when I visit the detail page for a finch, I want to see a list of toys belonging to the finch, and also any available toys that I can add to the finch.
+
 
 ### Development steps
 
