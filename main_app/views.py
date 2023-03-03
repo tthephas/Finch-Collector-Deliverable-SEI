@@ -36,7 +36,7 @@ def finches_detail(request, finch_id):
 
   #get list of ids of toys cat owns
   id_list = finch.toys.all().values_list('id')
-  toys_finch_doesnt_have = Finch.objects.exclude(id__in=id_list)
+  toys_finch_doesnt_have = Toy.objects.exclude(id__in=id_list)
 
 
 
