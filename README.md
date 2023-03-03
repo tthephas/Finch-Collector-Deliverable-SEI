@@ -6,7 +6,13 @@ AAU, when I visit the About page, I want to view some details about the finchcol
 
 AAU, when I visit the All Finches page, I want to view a list of all finches (index view) that displays each of the attributes of a finch.
 
-AAU, when I click on a cat in the cat list, I want to see a page that displays all the details for that cat.
+AAU, when I click on a finch in the finch list, I want to see a page that displays all the details for that finch.
+
+AAU, I want to be able to add a Finch to my list of Finches
+
+AAU, I want to be able to add edit the attributes of a Finch
+
+AAU, I want to be able to remove a Finch from my list of Finches
 
 
 ### Development steps
@@ -16,3 +22,15 @@ AAU, when I click on a cat in the cat list, I want to see a page that displays a
 3. Make the html template for that view
 4. Add some functionality(UI) to quickly get to that template
 
+
+# ERD
+
+### Finch
+name
+color
+description
+age
+
+### Feedings
+date
+meal
