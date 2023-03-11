@@ -156,4 +156,5 @@ if not DEBUG:
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = '/cats/'
+LOGIN_REDIRECT_URL = '/finches/'
+LOGOUT_REDIRECT_URL = '/'
