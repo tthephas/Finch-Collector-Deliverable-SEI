@@ -3,14 +3,18 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 
-from .models import Finch, Toy
+from .models import Finch, Toy, Photo
 from .forms import FeedingForm
 
+import uuid
+import boto3
+from django.conf import settings
 
-# finches = [
-#   {'name': 'Timmy', 'color': 'yellow', 'description': 'pretty bird', 'age': 4},
-#   {'name': 'Johnny', 'color': 'red', 'description': 'chunky bird', 'age': 6},
-# ]
+
+AWS_ACCESS_KEY = settings.AWS_ACCESS_KEY
+AWS_SECRET_ACCESS_KEY = settings.AWS_SECRET_ACCESS_KEY
+S3_BUCKET = settings.S3_BUCKET
+S3_BASE_URL = settings.S3_BASE_URL
 
 # Define the home view
 def home(request):
@@ -33,7 +37,7 @@ def finches_detail(request, finch_id):
   finch = Finch.objects.get(id=finch_id)
 
   ## toys
-  #get list of ids of toys cat owns
+  #get list of ids of toys finch owns
   id_list = finch.toys.all().values_list('id')
   toys_finch_doesnt_have = Toy.objects.exclude(id__in=id_list)
 
@@ -108,6 +112,26 @@ class ToyDelete(DeleteView):
 
 
 
+def add_photo(request, finch_id):
+    # photo-file will be the "name" attribute on the <input type="file">
+  photo_file = request.FILES.get('photo-file', None)
+  if photo_file:
+    s3 = boto3.client('s3',aws_access_key_id=AWS_ACCESS_KEY, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
+    # need a unique "key" for S3 / needs image file extension too
+    key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+    # just in case something goes wrong
+    try:
+      
+      s3.upload_fileobj(photo_file, S3_BUCKET, key)
+      # build the full url string
+      url = f"{S3_BASE_URL}{S3_BUCKET}/{key}"
 
+      photo = Photo(url=url, finch_id=finch_id)
+      photo.save()
+    except Exception as e:
+      print('An error occurred uploading file to S3')
+      print(e)
+      return redirect('detail', finch_id=finch_id)
+  return redirect('detail', finch_id=finch_id)
 
 
