@@ -98,16 +98,16 @@ WSGI_APPLICATION = "finchcollector.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'finchcollector',
-    }
-}
-
 # DATABASES = {
-#     'default': dj_database_url.config(default='postgresql://postgres:postgres@localhost:5432/finchcollector',conn_max_age=600)
+#     "default": {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'finchcollector',
+#     }
 # }
+
+DATABASES = {
+    'default': dj_database_url.config(default='postgresql://postgres:postgres@localhost:5432/finchcollector',conn_max_age=600)
+}
 
 
 
